@@ -6,7 +6,7 @@
                     v-if="currentRoom.id"
                     :rooms="chatRooms"
                     :currentRoom="currentRoom"
-                    v-on:roomChanged="setRoom( $event )"
+                    v-on:roomchanged="setRoom( $event )"
                 />
             </h2>
         </template>
