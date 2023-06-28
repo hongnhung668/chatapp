@@ -9,11 +9,25 @@ composer require laravel/sanctum
 - sử dụng sanctum
 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
 
-- laravel/jetstream cung cấp các tính năng chức năng cho việc xây dựng ứng dụng web như đăng ký, đăng nhập, xác thực hai yếu tố, phục hồi mật khẩu, đăng xuất và quản lý hồ sơ người dùng
+- laravel/jetstream cung cấp các tính năng chức năng cho việc xây dựng ứng dụng web như đăng ký, đăng nhập, xác thực hai
+yếu tố, phục hồi mật khẩu, đăng xuất và quản lý hồ sơ người dùng
 composer require laravel/jetstream
 
-- tích hợp Inertia thư viện JavaScript cho phép bạn xây dựng các ứng dụng web đơn trang (SPA) mà không cần phải viết lại mã HTML và CSS cho từng trang. Thay vào đó, Inertia sử dụng các thành phần Vue.js hoặc React để hiển thị nội dung của trang
+- tích hợp Inertia thư viện JavaScript cho phép bạn xây dựng các ứng dụng web đơn trang (SPA) mà không cần phải viết lại
+mã HTML và CSS cho từng trang. Thay vào đó, Inertia sử dụng các thành phần Vue.js hoặc React để hiển thị nội dung của
+trang
 php artisan jetstream:install inertia
 
-- xuất bản (publish) các file view của gói Jetstream trong Laravel. Khi chạy lệnh này, Laravel sẽ tạo ra các file view của Jetstream trong thư mục resources/views/vendor/jetstream
-php artisan vendor:publish --tag=jetstream-views
+- pusher
+https://dashboard.pusher.com/
+
+- điền thông tin app keys vào file .env
+
+- cài đặt package pusher/pusher-php-server
+composer require pusher/pusher-php-server
+
+- cài đặt package laravel-echo và pusher-js
+npm install --save laravel-echo pusher-js
+
+- tạo ra các class event mới trong thư mục app/Events
+php artisan event:generate

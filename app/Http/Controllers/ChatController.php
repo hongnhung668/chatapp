@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\ChatRoom;
 use App\Models\ChatMessage;
+use App\Events\NewChatMessage;
 
 class ChatController extends Controller
 {
@@ -19,7 +20,7 @@ class ChatController extends Controller
     {
         return ChatMessage::where('chat_room_id', $roomId)
             ->with('user')
-            ->orderBy('created_at', 'DESC')
+            ->orderBy('created_at', 'ASC')
             ->get();
     }
 
@@ -30,6 +31,8 @@ class ChatController extends Controller
         $newMessage->chat_room_id = $roomId;
         $newMessage->message = $request->message;
         $newMessage->save();
+
+        broadcast(new NewChatMessage($newMessage))->toOthers();
 
         return $newMessage;
     }
